@@ -1,0 +1,19 @@
+#root {
+  min-width: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.banner {
+  object-fit: cover;
+  height: 395px;
+  width: 100%;
+}
+
+.card-img-top-nueva {
+  width: 100%;
+}
