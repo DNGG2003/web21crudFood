@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+#Las variables de entorno es una de las primeras cosas que hay que hacer en la rama principal, ya que las variables de entorno guardan datos sensibles, y lo guardamos aqui porque le estamos diciendo al git ignore que ignore el .env y no lo suba al github
+.env
 
 # Editor directories and files
 .vscode/*
