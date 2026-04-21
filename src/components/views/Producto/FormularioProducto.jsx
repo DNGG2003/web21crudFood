@@ -1,22 +1,41 @@
-import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import productos from "../../../data/productosPrueba";
+import { crearProducto } from "../../../helpers/queries";
+import Swal from "sweetalert2";
 
-const FormularioProducto = () => {
+const FormularioProducto = ({ titulo }) => {
   const {
     register,
     handleSubmit,
     reset,
     setValue,
-    formState = { errors },
+    formState: { errors },
   } = useForm();
+
+  const onSubmit = async (producto) => {
+    console.log(producto);
+    if (titulo === "Crear Producto") {
+      const respuesta = await crearProducto(producto);
+      if (respuesta.status === 201) {
+        Swal.fire({
+          title: "Producto creado",
+          text: `El producto ${producto.nombreProducto} se creo correctamente`,
+          icon: "success",
+        });
+        reset();
+      } else {
+        alert("Ocurrio un error");
+      }
+    }
+  };
 
   return (
     <section className="container mainSection">
-      <h1 className="display-4 mt-5">Titulo Form</h1>
+      <h1 className="display-4 mt-5">{titulo}</h1>
       <hr />
-      <Form className="my-4" onSubmit={handleSubmit()}>
-        <Form.Group className="mb-3" controlId="formNombreProdcuto">
+      <Form className="my-4" onSubmit={handleSubmit(onSubmit)}>
+        <Form.Group className="mb-3" controlId="formNombreProducto">
           <Form.Label>Producto*</Form.Label>
           <Form.Control
             type="text"
@@ -79,7 +98,7 @@ const FormularioProducto = () => {
             {errors.imagen?.message}
           </Form.Text>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formPrecio">
+        <Form.Group className="mb-3" controlId="formCategoria">
           <Form.Label>Categoría*</Form.Label>
           <Form.Select
             {...register("categoria", {
@@ -100,7 +119,7 @@ const FormularioProducto = () => {
             {errors.categoria?.message}
           </Form.Text>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formImagen">
+        <Form.Group className="mb-3" controlId="formDescripcionBreve">
           <Form.Label>Descripción breve*</Form.Label>
           <Form.Control
             type="text"
@@ -123,7 +142,7 @@ const FormularioProducto = () => {
             {errors.descripcionBreve?.message}
           </Form.Text>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formImagen">
+        <Form.Group className="mb-3" controlId="formDescripcionAmplia">
           <Form.Label>Descripción Amplia*</Form.Label>
           <Form.Control
             type="text"
@@ -156,3 +175,11 @@ const FormularioProducto = () => {
 };
 
 export default FormularioProducto;
+
+/*Postman
+  post => Sirve para subir datos o crear un producto a nuestra base de datos
+  put => Solicitud para editar la informacion algun producto de nuestra base de datos
+  get => Cuando queremos solicitar informacion a nuestra base de datos utilizamos el get
+  delete => Sirve para eliminar 
+  patch => Sirve para editar una informacion puntual de alguno producto que esta en nuestra base de datos
+*/

@@ -48,12 +48,16 @@ const App = () => {
             />
             <Route
               path="/crear"
-              element={<FormularioProducto></FormularioProducto>}
+              element={
+                <FormularioProducto titulo="Crear Producto"></FormularioProducto>
+              }
             />
             {/* Utilizamos el id porque en este caso vamos a estar reutilizando el FormularioProducto, pero la diferencia va a ser que este formulario ya va a venir cargado con datos */}
             <Route
               path="/editar/:id"
-              element={<FormularioProducto></FormularioProducto>}
+              element={
+                <FormularioProducto titulo="Editar Producto"></FormularioProducto>
+              }
             />
             <Route path="*" element={<Error404></Error404>} />
           </Routes>

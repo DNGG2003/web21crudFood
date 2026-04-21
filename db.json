@@ -8,6 +8,25 @@
       "categoria": "Pizzas",
       "imagen": "https://images.pexels.com/photos/16890470/pexels-photo-16890470.jpeg",
       "id": "1029"
+    },
+    {
+      "id": "4qOqPxilvyA",
+      "nombreProducto": "Pizza Veggie",
+      "precio": 4200,
+      "descripcion_breve": "Pizza vegetariana con pimientos, cebolla y aceitunas",
+      "descripcion_amplia": "Pizza con base de salsa de tomate, mozzarella, pimientos asados, cebolla morada, champiñones, aceitunas negras y un toque de orégano. Perfecta para quienes buscan una opción sin carne.",
+      "categoria": "Pizzas",
+      "imagen": "https://images.pexels.com/photos/33706262/pexels-photo-33706262.jpeg"
+    },
+    {
+      "nombreProducto": "Flan Casero",
+      "precio": "4323",
+      "imagen": "https://i.pinimg.com/736x/86/ea/3d/86ea3dd91f3b53527ef3077244ab5c85.jpg",
+      "categoria": "Postres",
+      "descripcionBreve": "dqwdasdasdasdzczx",
+      "descripcionAmplia": "dasdasdczxczxdfsdafasdfwrew",
+      "id": "KsYQht8kiRQ"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
